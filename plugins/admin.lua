@@ -153,7 +153,7 @@ end
 local function run(msg,matches)
     local receiver = get_receiver(msg)
     local group = msg.to.id
-	local print_name = user_print_name(msg.from):gsub("â€®", "")
+	local print_name = user_print_name(msg.from):gsub("‮", "")
 	local name_log = print_name:gsub("_", " ")
     if not is_admin1(msg) then
     	return 
@@ -321,7 +321,7 @@ return {
 	"^[#!/](mycontact)$",
 	"^[#/!](reload)$",
 	"^[#/!](updateid)$",
-	--"^[#/!](sync_gbans)$",
+	"^[#/!](sync_gbans)$",
 	"^[#/!](addlog)$",
 	"^[#/!](remlog)$",
 	"%[(photo)%]",
@@ -329,6 +329,6 @@ return {
   run = run,
   pre_process = pre_process
 }
---By @imandaneshi and Seed team :)
+--By @imandaneshi :)
 --https://github.com/SEEDTEAM/TeleSeed/blob/test/plugins/admin.lua
 ---Modified by @Rondoozle for supergroups
